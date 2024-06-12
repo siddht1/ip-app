@@ -1,15 +1,15 @@
-import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
+import { Hono } from 'hono';
+import { handle } from '@hono/node-server/vercel';
 
-export const config = {
-  runtime: 'edge'
-}
-
-const app = new Hono().basePath('/api')
+const app = new Hono().basePath('/api');
 
 app.get('/', (c) => {
-  let fata={};
-  return c.json({ message: 'Hello Hono!' })
-})
+  return c.body('Hello from Hono!');
+});
 
-export default handle(app)
+app.post('/', async (c) => {
+  const input = await c.req.json();
+  return c.json(input);
+});
+
+export default handle(app);
