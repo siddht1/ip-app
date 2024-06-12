@@ -1,12 +1,15 @@
 {
+  "version": "0.0.2",
+  "type": "module",
   "scripts": {
     "start": "vercel dev",
     "deploy": "vercel"
   },
   "dependencies": {
-    "hono": "^4.4.5"
+    "@hono/node-server": "^1.2.0",
+    "hono": "^3.7.3"
   },
   "devDependencies": {
-    "vercel": "^32.4.1"
+    "vercel": "^32.4.0"
   }
 }
